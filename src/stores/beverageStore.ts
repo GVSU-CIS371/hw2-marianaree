@@ -32,6 +32,7 @@ export const useBeverageStore = defineStore("BeverageStore", {
         syrup: this.currentSyrup,
       };
       this.beverages.push(this.currentBeverage);
+      console.log(`beverages ${this.beverages}`)
     },
     showBeverage() {
       this.currentBeverage && (this.currentName = this.currentBeverage.name,
