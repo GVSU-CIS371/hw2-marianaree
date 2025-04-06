@@ -34,20 +34,24 @@ export const useBeverageStore = defineStore("BeverageStore", {
       this.beverages.push(this.currentBeverage);
       console.log(`beverages ${this.beverages}`)
     },
-    showBeverage() {
-      this.currentBeverage && (this.currentName = this.currentBeverage.name,
-        this.currentTemp = this.currentBeverage.temp,
-        this.currentBase = this.currentBeverage.base,
-        this.currentSyrup = this.currentBeverage.syrup,
-        this.currentCreamer = this.currentBeverage.creamer)
-    /*  this.currentBase = this.currentBeverage?.base || this.bases[0];
+    showBeverage(currentBeverage: BeverageType) {
+      this.currentBeverage = currentBeverage;
+    this.currentBase = this.currentBeverage.base;
+    this.currentCreamer = this.currentBeverage.creamer;
+    this.currentSyrup = this.currentBeverage.syrup;
+    this.currentTemp = this.currentBeverage.temp;
+    this.currentName = this.currentBeverage.name;
+    /*this.currentBase = this.currentBeverage?.base || this.bases[0];
     this.currentCreamer = this.currentBeverage?.creamer || this.creamers[0];
     this.currentSyrup = this.currentBeverage?.syrup || this.syrups[0];
     this.currentTemp = this.currentBeverage?.temp || this.temps[0];
     this.currentName = this.currentBeverage?.name || "";*/
+      /*this.currentBeverage && (this.currentName = this.currentBeverage.name,
+        this.currentTemp = this.currentBeverage.temp,
+        this.currentBase = this.currentBeverage.base,
+        this.currentSyrup = this.currentBeverage.syrup,
+        this.currentCreamer = this.currentBeverage.creamer)*/
     },
-    
-
   },
   persist: true,
 });

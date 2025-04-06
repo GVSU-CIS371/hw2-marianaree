@@ -64,7 +64,7 @@
     <div id="beverage-container" style="margin-top: 20px">
       <template v-for="beverage in beverageStore.beverages" :key="beverage.id">
       <label> 
-        <input @Click="beverageStore.showBeverage(beverage)"
+        <input @change="beverageStore.showBeverage(beverageStore.currentBeverage)"
           type="radio"
           name="beverage"
           :id="`r${beverage.id}`"
