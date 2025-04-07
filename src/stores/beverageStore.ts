@@ -7,13 +7,13 @@ import { BeverageType,CreamerType, SyrupType, BaseBeverageType} from "../types/b
 
 export const useBeverageStore = defineStore("BeverageStore", {
   state: () => ({
-    temps: tempretures,
-    currentTemp: tempretures[0],
-    bases: bases,
+    temps: tempretures as string[],
+    currentTemp: tempretures[0] as string,
+    bases: bases as BaseBeverageType[],
     currentBase: bases[0] as BaseBeverageType,
-    creamers: creamers,
+    creamers: creamers as CreamerType[],
     currentCreamer: creamers[0] as CreamerType,
-    syrups: syrups,
+    syrups: syrups as SyrupType[],
     currentSyrup: syrups[0] as SyrupType,
     currentName: "",
     beverages: [] as BeverageType[],
@@ -34,24 +34,16 @@ export const useBeverageStore = defineStore("BeverageStore", {
       this.beverages.push(this.currentBeverage);
       console.log(`beverages ${this.beverages}`)
     },
-    showBeverage(currentBeverage: BeverageType) {
-      this.currentBeverage = currentBeverage;
+    showBeverage() {
+    if (!this.currentBeverage) {
+      console.log("No beverage selected");
+      return;
+    }
     this.currentBase = this.currentBeverage.base;
     this.currentCreamer = this.currentBeverage.creamer;
     this.currentSyrup = this.currentBeverage.syrup;
     this.currentTemp = this.currentBeverage.temp;
     this.currentName = this.currentBeverage.name;
-    /*this.currentBase = this.currentBeverage?.base || this.bases[0];
-    this.currentCreamer = this.currentBeverage?.creamer || this.creamers[0];
-    this.currentSyrup = this.currentBeverage?.syrup || this.syrups[0];
-    this.currentTemp = this.currentBeverage?.temp || this.temps[0];
-    this.currentName = this.currentBeverage?.name || "";*/
-      /*this.currentBeverage && (this.currentName = this.currentBeverage.name,
-        this.currentTemp = this.currentBeverage.temp,
-        this.currentBase = this.currentBeverage.base,
-        this.currentSyrup = this.currentBeverage.syrup,
-        this.currentCreamer = this.currentBeverage.creamer)*/
     },
   },
-  persist: true,
 });
