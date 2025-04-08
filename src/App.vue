@@ -60,7 +60,7 @@
         </li>
     </ul>
     <input type="text" placeholder="Beverage Name" v-model="beverageStore.currentName"/>
-    <button @Click ="beverageStore.makeBeverage()">🍺 Make Beverage</button>
+    <button @click ="beverageStore.makeBeverage()">🍺 Make Beverage</button>
     <div id="beverage-container" style="margin-top: 20px">
       <template v-for="beverage in beverageStore.beverages" :key="beverage.id">
       <label> 
